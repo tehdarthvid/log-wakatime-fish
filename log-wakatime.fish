@@ -10,11 +10,17 @@ function log-wakatime \
     set -l project "Terminal"
 
     if [ -d .git ]
-        set project (basename (git config --local remote.origin.url))
+        set -l tmp (basename (git config --local remote.origin.url) 2>/dev/null)
+        if [ $status -eq 0 ]
+            set project $tmp
+        end
     else
         git rev-parse > /dev/null 2>&1
         if [ $status -eq 0 ]
-            set project (basename (git config --local remote.origin.url))
+            set -l tmp (basename (git config --local remote.origin.url) 2>/dev/null)
+            if [ $status -eq 0 ]
+                set project $tmp
+            end
         end
     end
 
