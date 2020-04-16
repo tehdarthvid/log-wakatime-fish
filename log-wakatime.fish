@@ -24,7 +24,11 @@ function log-wakatime \
         end
     end
 
-    set project (string replace '.git' '' $project)
+    
+    set tmp (echo $project | sed 's/.*\(....\)/\1/')
+    if [ $tmp = ".git" ]
+        set project (echo $project | sed 's/....$//')
+    end
     #echo $project "~> "
     wakatime --write --plugin "log-wakatime/1.0.0" --entity-type app --project "$project" --entity (echo $history[1] | cut -d ' ' -f1) 2>&1 > /dev/null&
 
