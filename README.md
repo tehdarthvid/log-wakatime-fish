@@ -6,6 +6,8 @@ Based on [`fish-wakatime.sh`](https://wakatime.com/terminal#install-fish). Modif
 
 ## Installation
 
-1. Make sure your [API key](https://wakatime.com/settings/api-key) is in your [`~/.wakatime.cfg`](https://github.com/wakatime/wakatime#configuring) file.
+1. prerequisites
+   1. Your [WakaTime API key](https://wakatime.com/settings/api-key) is in your [`~/.wakatime.cfg`](https://github.com/wakatime/wakatime#configuring) file.
+   1. [WakaTime for Terminal](https://wakatime.com/terminal) is installed.
 1. Copy `log-wakatime.fish` to `~/.config/fish/functions/`.
 1. Add `log-wakatime` to `~/.config/fish/functions/fish_prompt.fish`. If the file doesn't exist, create it.
